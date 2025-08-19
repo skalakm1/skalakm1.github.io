@@ -1,0 +1,65 @@
+/* styles for the elements */
+/* universal reset selector */
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	background-color: rgb(227, 229, 230);
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    width: 100%;
+    margin: .15em auto;  /* margins around body */
+    /*border: 3px solid #144093; */
+    background-color: #fcfbf4;
+}
+a:focus, a:hover {
+	font-style: italic;
+}
+
+/* styles for header */
+header {
+	padding: 1.5em 0 2.0em 0;
+	border-bottom: 3px solid #144093;
+	background-image: linear-gradient(
+	    30deg, #d5f1f8 0%, white 50%, #d5f1f8 80%);
+}
+header h1 {
+    padding-top: .35em;
+    padding-left: .25em;}
+
+header img {
+	float: left;
+	padding: 0 30px;}
+
+/* styles for main */
+
+
+main h2 {
+	font-size: 115%;
+	padding: 2em 0 .25em 1em;
+}
+
+nav ul {
+	padding: 0 0 .25em 2.25em;
+}
+nav li {
+	padding-bottom: .35em;
+    padding-left: .35em;
+}
+main p {
+    text-align: right;
+    padding: 4em .3em 0 0; }
+
+/* styles for footer */
+footer {
+	background-color: #d5f1f8;
+	clear: both;
+    margin-top: 5em;
+    border-top: 2px solid #144093; 
+    border-bottom: 2px solid #144093;
+	text-align: center;
+	padding: 1em 0;
+    font-size: 80%; }
