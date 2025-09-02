@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming - Basic Operations - Fall 2025">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript - Basic Operations - Get form data, perfom calculations with JS, display results in textarea.</title>
+    <link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw2.css">
+
+    <script>
+        // Function processForm gets 3 variables from 3 document form elements, converts them to integers, and then calculates
+        // the sum, product, average (to 2 decimals), smallest, and largest.  The results are put into the document's textarea, 
+        // which causes the result string to be displayed on the page when the function executes.  If any of the inputs are
+        // evaluated to be not numeric, an error message is displayed in the result area.
+        function processForm() {  
+            var sum, product, average, largest, smallest;    // declare variables for calculation results
+            var resultString;                                // string to hold result  
+
+            // get user input from 3 named elements in named form, convert to int    
+            let num1 = parseInt(document.forms["three_int_form"].elements["int1"].value, 10); 
+            let num2 = parseInt(document.forms["three_int_form"].elements["int2"].value, 10);
+            let num3 = parseInt(document.forms["three_int_form"].elements["int3"].value, 10);
+       
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {    // if any input is not a valid int
+                // put error message into result string
+                // resultString = document.forms["three_int_form"].elements["resultArea"].value = 'Please enter a valid number in all input boxes.';
+                resultString = 'Please enter a valid number in all input boxes.';
+            }                
+            else {                                              // else input is good, proceed with calculations
+                // calculate sum, product, average (to 2 decimals), smallest, and largest
+                sum = num1 + num2 + num3; 
+                product = num1 * num2 * num3;
+                average = (sum/3).toFixed(2);
+                smallest = Math.min(num1, num2, num3);    // uses Math library built-in method min
+                largest = Math.max(num1, num2, num3);     // uses Math library built-in method max
+                // build result string
+                resultString = `Sum: ${sum}\nProduct: ${product}\nAverage: ${average}\n\nSmallest: ${smallest}\nLargest: ${largest}`;
+            }
+
+            // Write the result to the webpage, by setting the value of "resultArea" textarea to result string
+            document.forms["three_int_form"].elements["resultArea"].value = resultString;     // put result string in named textarea
+        }
+    </script>
+</head>
+
+<body>
+	<header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #2 - Basic Operations - Part 2 </h2>
+	</header>
+
+	<main>
+        <h2>Part 2  -  Use JS to get form input, perform arithmetic operations on input when user clicks button, and display results in a textarea.</h2>
+	            	
+		<form name="three_int_form">
+            <p>This page calculates the sum, product, and average of your 3 integers.  The largest and smallest are also displayed in the results.<br>
+            Enter your 3 integers:</p>
+            <p><label>Integer 1 <input type="number" name="int1" required></label></p>
+            <p><label>Integer 2 <input type="number" name="int2" required></label></p>
+            <p><label>Integer 3 <input type="number" name="int3" required></label></p>
+            <p><label><input type="reset" id="resetform" value="Clear form"></label>
+               <label><input type="button" value="Process data" onclick="processForm()"></label></p>
+            <p><label>Results:<textarea rows="6" cols="50" name="resultArea" readonly></textarea></label></p>     
+        </form>
+    		
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw2.html">Homework 2 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+	<footer>
+        This page belongs to Martha Skalak.<br>
+    </footer>
+
+</body>
+</html>

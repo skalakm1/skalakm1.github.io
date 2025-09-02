@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming - Basic Operations - Fall 2025">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript - Basic Operations - Display styled text using Javascript</title>
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw2.css">
+</head>
+
+<body>
+	<header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #2 - Basic Operations - Part 1 </h2>
+	</header>
+
+	<main>
+        <h2>Part 1  -  Display styled text using JavaScript</h2>
+	    <p>This assignment demonstrates the use of a JavaScript to modify the contents of this web page. <br> 
+        The result below is displayed using my first JS script!  </p>
+        	
+		<p id="result"></p>  <!-- id of the paragraph where the result string will be displayed -->
+
+		<script>
+		// Use innerHTML property to return HTML statements to display a string on the page
+		var htmlString = "";   // declare variable and initialize to empty string
+
+		// build string
+		htmlString = "<span style = 'color: red; font-family: Times New Roman;'><strong>xy </strong></span> <span style = 'color: blue; font-family: Arial;'>12 </span> <span style = 'color: green; font-family: Impact;'><em>89</em> </span>";
+		
+		// set result paragraph on page to contents of built htmlString, which causes the string to be displayed on page
+		document.getElementById("result").innerHTML = htmlString;
+		</script>
+
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw2.html">Homework 2 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+	<footer>This page belongs to Martha Skalak.<br>
+    <script>document.write(Date());</script>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming - Basic Operations - Fall 2025">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript - Basic Operations - Exchange rate calculator using JS</title>
+    <link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw2.css">
+
+<script>
+    // Function processForm gets user inputted US dollar amount, and calculates the value in other currencies.  The results 
+    // are put into the Value column in the document's table.  
+    function processForm() {
+        var euroVal, canadianDollarVal, hongkongDollarVal, yenVal, pesoVal;    // declare variables for calculation results
+        var resultString = "";                                                 // string to hold result message  
+        const euroRate = 0.92;
+        const canadianDollarRate = 1.38;
+        const hongkongDollarRate = 7.81;
+        const yenRate = 156.73;
+        const pesoRate = 18.41;
+
+        // get user input from form, convert to float    
+        let num1 = parseFloat(document.forms["rate_form"].elements["userInput"].value, 10); 
+        
+            if (isNaN(num1)) {                              // if user input is not a valid float number
+              // put error message into result string
+              resultString = "<span style = 'color: red; font-family: Arial;'><strong>Enter a valid US dollar amount above.</strong></span>";
+            }                
+            else {                                         // else input is good, proceed with calculations
+                // calculate value of user-inputted US dollars in various currencies
+                euroVal = euroRate * num1;
+                canadianDollarVal = canadianDollarRate * num1;
+                hongkongDollarVal = hongkongDollarRate * num1;
+                yenVal = yenRate * num1;
+                pesoVal = pesoRate * num1;
+                // set the contents of each Value cell in the table to the calculated value, rounded to 2 decimal places
+                document.getElementById("euro").textContent = euroVal.toFixed(2);
+                document.getElementById("canadianDol").textContent = canadianDollarVal.toFixed(2);
+                document.getElementById("hongkongDol").textContent = hongkongDollarVal.toFixed(2);
+                document.getElementById("japaneseYen").textContent = yenVal.toFixed(2);
+                document.getElementById("mexicanPeso").textContent = pesoVal.toFixed(2);
+                resultString = "<span style = 'color: green; font-family: Arial;'><strong>See results in table above.</strong></span>";
+            }
+
+            // Write the result message to the webpage, by setting the value of "resultArea" textarea to result string
+            document.getElementById("resultArea").innerHTML = resultString;     // put result string in named textarea
+        }   // end processForm function
+    </script>    
+</head>
+
+<body>
+	<header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #2 - Basic Operations - Extra Credit </h2>
+	</header>
+
+	<main>
+        <h2>Extra Credit - Use JS to calculate value of US dollars using various exchange rates.</h2>
+	            	
+		<form name="rate_form">
+            <p>This table shows the US dollar exchange rates in listed currencies. <br>
+            Enter a US dollar amount in the bottom box to see values displayed in other currencies above.</p>
+            <table>
+                <tr>
+                    <th>Currency</th>
+                    <th>Rate</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Euro</td>
+                    <td>0.92</td>
+                    <td id="euro" class="right"></td>
+                </tr>
+                <tr>
+                    <td>Canadian Dollar</td>
+                    <td>1.38</td>
+                    <td id="canadianDol" class="right"></td>
+                </tr>
+                <tr>
+                    <td>Hong Kong Dollar</td>
+                    <td>7.81</td>
+                    <td id="hongkongDol" class="right"></td>
+                </tr>
+                <tr>
+                    <td>Japanese Yen</td>
+                    <td>156.73</td>
+                    <td id="japaneseYen" class="right"></td>
+                </tr>
+                <tr>
+                    <td>Mexican Peso</td>
+                    <td>18.41</td>
+                    <td id="mexicanPeso" class="right"></td>
+                </tr>
+                <tr>
+                    <td class="bold" colspan = "2">Enter Amount of U.S. Dollars: </td>
+                    <td> <input type="text" id="userInput" class="inputBox" autofocus> </td>     <!-- the cell where the user enters input -->
+                </tr>
+            </table>`
+            <p id="convert"><input type="button" value="Convert dollars" onclick="processForm()"></p>
+        </form>
+
+        <p id="resultArea"></p>
+        
+            		
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw2.html">Homework 2 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+	<footer>
+        This page belongs to Martha Skalak.<br>
+    </footer>
+
+</body>
+</html>

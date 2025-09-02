@@ -1,0 +1,67 @@
+/* Styles for all HW2 pages - part 1, part 2, and Extra Credit page.
+
+/* styles for the elements */
+/* universal reset selector */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* styles for header */
+header h1 {
+    padding-top: .35em;
+    padding-left: .75em;}
+header h2 {
+    padding-left: .95em;}    
+
+/* styles for main */
+main h2 {
+	font-size: 115%;
+	padding: 2em 0 .25em 1em;}
+main p {
+    text-align: left;
+    padding: 1em .3em 0 1em; }
+main form textarea {
+    margin-left: 1.75em;
+}
+#resetform {                    /* add space between reset and process buttons */
+    margin-right: .75em;
+}
+
+/* styles for navigation links at bottom of each page */
+#nav_menu ul {
+    list-style-type: none;
+    padding-top: 2em;
+    text-align: center;
+}
+#nav_menu ul li {
+    display: inline;
+    padding: 0 1.6em;
+}
+#nav_menu ul a {
+    font-weight: bold;
+}
+
+/* styles added for Extra Credit page */
+table {
+    border: thin solid black;
+    margin: 2em 0 0 1em;
+} 
+th, td {
+    border: thin solid black;
+}
+.bold {
+    font-weight: bold;
+}
+.right {
+    text-align: right;
+}
+#convert {
+    margin-left: 15em;
+}
+#userInput:focus {
+      outline: .75px solid #abfa61;
+      background: #def7d6;
+      border-color: #0a640e;
+      
+    }
