@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming - Functions - Grade average calculation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript Functions - Find grade average, letter grade using grades entered into form, and display results in form textarea.</title>
+    <link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw3.css">
+
+    <script>
+        // Function Declarations. 
+
+        // Function: outOfRange
+        // Arguments: score (integer)
+        // Returns: boolean value T if score is outside of the range (>= 101 or <= -1).
+        //          boolean value F if score is within the range of 0 - 100, inclusive.
+        function outOfRange(score) {
+            return (score > 100 || score < 0);
+        }
+
+        // Function: getLetterGrade
+        // Arguments: grade (integer)
+        // Returns: string letter grade corresponding to the parameter value received
+        function getLetterGrade(grade) {
+            var letter;
+            if (grade >= 90) {
+                letter = "A";
+            }
+            else if (grade >= 80) {
+                letter = "B";
+            }
+            else if (grade >= 70) {
+                letter = "C";   
+            }
+            else if (grade >= 60) {
+                letter = "D";
+            }
+            else {
+                letter = "F";
+            }
+            return letter;
+        }
+
+        // Function: clearResult
+        // When the user clicks in any of the 4 input boxes to edit or enter a score,
+        // the result textarea is cleared of any prior results or message (since those
+        // results or message do not apply to the input values being changed or entered).
+        function clearResult()
+        {
+            document.forms["scores_form"].elements["resultArea"].value = "";
+        }
+
+        // Function: processForm
+        // Initiated by:  user click event on Submit Scores button  
+        // Gets user entered scores from current page's form.  
+        // Checks that inputs are numeric, and within accepted range.  
+        // If any of the inputs are evaluated to be not numeric or outsdie of 1-100 range,
+        //  appropriate error message is displayed in the result area.
+        // If the inputs are valid, final grade is calculated, rounded to nearest integer,
+        //  and result string is built with corresponding letter grade.
+        // If the final rounded grade <= 69, an additional message is added to the result string. 
+        // The resultString is put into the textarea at the end of the form.   
+        function processForm() { 
+            // declare variables
+            var hwAvg, midExam, finalExam, participation;  // user input
+            var gradeAvg, roundedAvg;                      // calculated grade average and rounded avg
+            var resultString;                              // string to hold result
+            var letterGrade;                               // string to hold letter grade  
+            
+            // get user input from 4 named elements in named form, convert to int
+            hwAvg = parseInt(document.forms["scores_form"].elements["int1"].value, 10); 
+            midExam = parseInt(document.forms["scores_form"].elements["int2"].value, 10);
+            finalExam = parseInt(document.forms["scores_form"].elements["int3"].value, 10);
+            participation = parseInt(document.forms["scores_form"].elements["int4"].value, 10);
+            
+            // check if user entered scores are numeric and in range
+            if ( isNaN(hwAvg) || isNaN(midExam) || isNaN(finalExam) || isNaN(participation) ) {    
+                resultString = "Please enter a valid number in all input boxes.";
+            }
+            else if ( outOfRange(hwAvg) || outOfRange(midExam) || outOfRange(finalExam) || outOfRange(participation) ) {
+                    resultString = "All scores must be between 0 and 100, inclusive.";
+            }                
+            else {    
+                // else input is good, proceed with calculation of final grade average, 
+                //  round to nearest integer per assignment specification, build result & message string.
+                gradeAvg = (.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * participation); 
+                roundedAvg = Math.round(gradeAvg);
+                letterGrade = getLetterGrade(roundedAvg);
+                
+                // build result string
+                resultString = `Final Grade Average: ${roundedAvg}\nFinal Letter Grade:  ${letterGrade}\n`;
+                if (roundedAvg <= 69) {
+                    resultString = resultString + "\nStudent must retake course.";
+                }
+            }
+                        
+            // Display result on the page, by setting the value of named textarea to result string
+            document.forms["scores_form"].elements["resultArea"].value = resultString;     
+        }
+    </script>
+</head>
+
+<body>
+	<header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #3 - Functions - Part 1 </h2>
+	</header>
+
+	<main>
+        <h2>Student Grades - Uses JS functions to process user input when user clicks submit button, and display results in a textarea.</h2>
+	            	
+		<form name="scores_form">
+            <p>Enter grades in 4 boxes below (integer format).  Submit scores to get final grade average and letter grade.<br>
+            </p>
+            
+            <div class="alignboxes">
+            <label for="int1">Homework Average</label>
+            <input type="number" name="int1" id="int1" autofocus required>
+
+            <label for="int2">Midterm Exam Score</label>
+            <input type="number" name="int2" id="int2" required>
+
+            <label for="int3">Final Exam Score</label>
+            <input type="number" name="int3" id="int3" required>
+
+            <label for="int4">Participation Score</label>
+            <input type="number" name="int4" id="int4" required>
+            </div>
+            
+            <p><label><input type="reset" id="resetform" value="Clear form"></label>
+               <label><input type="button" id="processBtn" value="Submit scores"></label></p>
+
+            <p><label>Results:<textarea rows="4" cols="50" name="resultArea" readonly></textarea></label></p>     
+        </form>
+    		
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw3.html">Homework 3 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+	<footer>
+        This page belongs to Martha Skalak.<br>
+    </footer>
+ 
+    <script>
+        // Set Event Handler Properties.  
+        // Notes to self: Process btn did not work with this code in <head>.  Worked when I moved code to end of <body>.
+
+        // Get reference to button in the form, and set element onclick property to processForm function reference.
+        const myBtn = document.getElementById("processBtn");
+        myBtn.onclick = processForm;
+
+        // Get reference to each input box, and set elements onclick property to clearResult function reference.   
+        const box1 = document.getElementById("int1");
+        box1.onclick = clearResult;
+        const box2 = document.getElementById("int2");
+        box2.onclick = clearResult;
+        const box3 = document.getElementById("int3");
+        box3.onclick = clearResult;
+        const box4 = document.getElementById("int4");
+        box4.onclick = clearResult;
+    </script>
+</body>
+</html>

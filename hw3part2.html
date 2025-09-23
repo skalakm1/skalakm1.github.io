@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming - Functions - Calculate earnings from items sold data">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript Functions - Calculate total amount sold and earnings from sales data entered into form.</title>
+    <link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw3.css">
+
+    <script>
+        // Function Declarations. 
+
+        // Function: calcEarnings(totDolSold)
+        // Arguments: total dollars sold
+        // Returns: total weekly earnings, to 2 decimals
+        function calcEarnings(tot) {
+            return (250 + (.09 * tot));
+        }
+
+        // Function: calcItemDolTot(qty, itemNum)
+        // Arguments: qty sold, and item #
+        // Returns: total dollars sold for that item, to 2 decimals  
+        // Note:  Values for each item are stored here as constants.
+        function calcItemDolTot(qty, itemNum) {
+            const item1Val = 20.99;
+            const item2Val = 12.75;
+            const item3Val = 9.95;
+            const item4Val = 35.89;
+            //alert("got to switch stmt");
+            switch (itemNum) {
+                case 1:
+                    tot = qty * item1Val;
+                    break;
+                case 2:
+                    tot = qty * item2Val;
+                    break;
+                case 3:
+                    tot = qty * item3Val;
+                    break;
+                case 4:
+                    tot = qty * item4Val;
+                    break;
+            }
+            return tot; 
+        }
+
+        // Function: clearData
+        // When the user clicks the Clear all data button, any info displayed in the table and message area are cleared.
+        function clearData() {
+            document.getElementById("message").textContent = "";
+            document.getElementById("qty1").textContent = "";
+            document.getElementById("qty2").textContent = "";
+            document.getElementById("qty3").textContent = "";
+            document.getElementById("qty4").textContent = "";
+
+            document.getElementById("tot1").textContent = "";
+            document.getElementById("tot2").textContent = "";
+            document.getElementById("tot3").textContent = "";
+            document.getElementById("tot4").textContent = "";
+
+            document.getElementById("totSold").textContent = "";
+            document.getElementById("earnings").textContent = "";
+        }
+        
+        // Function: processForm
+        // Initiated by:  user click event on Submit Scores button  
+        // Get user entered sales data from current page's form.  
+        // Check that inputs are numeric, and not negative.  
+        // If any of the inputs are evaluated to be not numeric or negative,
+        //  appropriate error message is displayed below input boxes.
+        // If the inputs are valid, total dollars sold and earnings are calculated, rounded to 2 decimals,  
+        //  and displayed in the table at bottom of page.
+        function processForm() {
+             
+            // declare variables
+            var item1Qty, item2Qty, item3Qty, item4Qty;      // user input
+            var item1Dols, item2Dols, item3Dols, item4Dols;  // calculated dollars sold for each item
+            var totSold, earnings;                           // calculated values  
+            
+            // get user input from 4 named elements in named form, convert to int
+            item1Qty = parseInt(document.forms["sales_form"].elements["int1"].value, 10); 
+            item2Qty = parseInt(document.forms["sales_form"].elements["int2"].value, 10);
+            item3Qty = parseInt(document.forms["sales_form"].elements["int3"].value, 10);
+            item4Qty = parseInt(document.forms["sales_form"].elements["int4"].value, 10);
+            
+            // check if user entered values are numeric and >= 0
+            if ( isNaN(item1Qty) || isNaN(item2Qty) || isNaN(item3Qty) || isNaN(item4Qty) ) {  
+                document.getElementById("message").innerHTML = "Please enter a valid number in all input boxes.  Enter 0 if none sold."; 
+            }
+            else if ( item1Qty < 0 || item2Qty < 0 || item3Qty < 0 || item4Qty < 0 ) {
+                document.getElementById("message").innerHTML = "Negative amounts not accepted. Please ensure all values are 0 or greater.";
+            }                
+            else {    
+                // else input is good, proceed with calculations
+                item1Dols = calcItemDolTot(item1Qty, 1);
+                item2Dols = calcItemDolTot(item2Qty, 2);
+                item3Dols = calcItemDolTot(item3Qty, 3);
+                item4Dols = calcItemDolTot(item4Qty, 4);
+                totSold = item1Dols + item2Dols + item3Dols + item4Dols;
+
+                // put results on page     
+                document.getElementById("message").innerHTML = "See results in table below.";
+                document.getElementById("qty1").textContent = item1Qty;
+                document.getElementById("qty2").textContent = item2Qty;
+                document.getElementById("qty3").textContent = item3Qty;
+                document.getElementById("qty4").textContent = item4Qty;
+
+                document.getElementById("tot1").textContent = item1Dols.toFixed(2);
+                document.getElementById("tot2").textContent = item2Dols.toFixed(2);
+                document.getElementById("tot3").textContent = item3Dols.toFixed(2);
+                document.getElementById("tot4").textContent = item4Dols.toFixed(2);
+
+                document.getElementById("totSold").textContent = totSold.toFixed(2);
+                document.getElementById("earnings").textContent = calcEarnings(totSold).toFixed(2);
+            }
+        }
+    </script>
+</head>
+
+<body>
+	<header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #3 - Functions - Part 2 </h2>
+	</header>
+
+	<main>
+        <h2>Total Dollars Sold & Earnings - Use JS functions to determine totals from user input of quantities sold.</h2>
+	    <!-- form contains user input boxes, and a message textarea -->        	
+		<form name="sales_form">
+            <p>Enter the quantity sold of each item (integer format).  Submit to get total amount sold and earnings, displayed in table below.<br>
+            </p>
+            
+            <p><label for="int1">Item 1</label>
+               <input type="number" name="int1" id="int1" autofocus required></p>
+
+            <p><label for="int2">Item 2</label>
+               <input type="number" name="int2" id="int2" required></p>
+
+            <p><label for="int3">Item 3</label>
+               <input type="number" name="int3" id="int3" required></p>
+
+            <p><label for="int4">Item 4</label>
+               <input type="number" name="int4" id="int4" required></p>
+            
+            <p><label><input type="reset" id="clearBtn" value="Clear all data"></label>
+               <label><input type="button" id="processBtn" value="Submit sales data"></label></p>
+            
+            <p><label><textarea rows="1" cols="75" name="message" id="message" readonly></textarea></label></p>  
+        </form>
+
+        <!-- results are presented in table below input and messaging areas -->
+        <table>
+        <caption>Total dollars sold and earnings made based on quantity of each item sold</caption>
+        <thead>    
+            <tr>
+                <th>Item #</th>
+                <th>Price</th>
+                <th>Quantity Sold</th>
+                <th>Total $</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>$20.99</td>
+                <td id="qty1" class="right"></td>
+                <td id="tot1" class="right"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>$12.75</td>
+                <td id="qty2" class="right"></td>
+                <td id="tot2" class="right"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>$9.95</td>
+                <td id="qty3" class="right"></td>
+                <td id="tot3" class="right"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>$35.89</td>
+                <td id="qty4" class="right"></td>
+                <td id="tot4" class="right"></td>
+            </tr>
+        </tbody>
+        <tfoot>        
+            <tr>
+                <td class="bold" colspan = "3">Total Amount Sold: </td>
+                <td id="totSold" class = "right"> </td>           <!-- calculated total dollar amt goes here -->
+            </tr>
+            <tr>
+                <td class="bold" colspan = "3">Total Weekly Earnings: </td>
+                <td id="earnings" class = "right"> </td>          <!-- calculated earnings go here -->
+            </tr>
+        </tfoot>
+        </table>`
+                   
+       	<p>Note: Total weekly earnings are base pay of $250 + 9% commission on total amount sold.</p>	
+
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw3.html">Homework 3 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+	<footer>
+        This page belongs to Martha Skalak.<br>
+    </footer>
+ 
+    <script>     // Set Event Handler Properties. 
+        // Get reference to process button in the form, and set element onclick property to processForm function reference.
+        const calcBtn = document.getElementById("processBtn");
+        calcBtn.onclick = processForm;
+
+        // Get reference to reset button in the form, and set element onclick property to clearData function reference.
+        const clrBtn = document.getElementById("clearBtn");
+        clrBtn.onclick = clearData;
+    </script>
+</body>
+</html>

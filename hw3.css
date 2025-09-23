@@ -1,0 +1,99 @@
+/* Styles for all HW3 pages - part 1, part 2, and Extra Credit page.
+
+/* styles for the elements */
+/* universal reset selector */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* styles for header */
+header h1 {
+    padding-top: .35em;
+    padding-left: .75em;}
+header h2 {
+    padding-left: .95em;}    
+
+
+/* styles for main */
+main h2 {
+	font-size: 115%;
+	padding: 2em 0 .25em 1em;}
+main p {
+    text-align: left;
+    padding: 1em .3em 0 1em; }
+   
+main form textarea {
+    margin-left: 1.75em;
+}
+
+#clearBtn {                    
+    margin-right: .75em;       /* add space between clear and process buttons */
+    margin-left: 1.75em;       /* indent buttons */
+}
+
+.alignboxes {
+    display:grid;
+    grid-template-columns: .2fr .1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 6px;
+    padding-top: .9em;
+}
+.alignboxes label {
+    text-align: right;
+}
+
+
+/* styles for Table */
+table {
+    border: thin solid black;
+    margin: 2em 0 0 2.5em;
+} 
+th, td {
+    border: thin solid black;
+}
+.bold {
+    font-weight: bold;
+}
+.right {
+    text-align: right;
+}
+th {
+    height: 25px;             /* Make headings row greater height than other rows */
+}
+tfoot tr:nth-last-child(1) {
+  height: 25px;               /* Make last 2 rows (total rows) greater height than other rows */
+}
+tfoot tr:nth-last-child(2) {
+  height: 25px;               /* Make last 2 rows (total rows) greater height than other rows */
+}
+
+
+/* styles for navigation links at bottom of each page */
+#nav_menu ul {
+    list-style-type: none;
+    padding-top: 2em;
+    text-align: center;
+}
+#nav_menu ul li {
+    display: inline;
+    padding: 0 1.6em;
+}
+#nav_menu ul a {
+    font-weight: bold;
+}
+
+
+/* styles for Extra Credit page */
+#userInput {
+    margin-left: 1.5em;       /* space between label and input box */
+    margin-top: 0.5em;
+}
+
+#processBtn {                    
+    margin-left: .75em;       /* add space between input box and process button */
+}
+
+#message {
+    margin-left: .75em;
+}

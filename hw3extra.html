@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming - Functions - Multiplication Game">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript Functions - Dynamic web page to play multiplication learning game.</title>
+    <link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw3.css">
+
+    <script> //notes to self: JS statements inside a function are only run when called.  1st phase just loads & stores the js functions.
+             // JS statements outside a function are run in 1st phase when code is parsed.  
+
+        // Global variable.
+        var answer;                          // result of the 2 nums being multiplied
+    
+        
+        // Function: initGame() - gets 2 random numbers and displays the multiplication question on the webpage.
+        // No arguments, no return value.  Updates the global variable answer with the product of the 2 nums.
+        // Initiated by: 1 - completion of DOM content load, and 2 - when user clicks on yes play again button.  
+        function initGame() {                
+            var num1, num2;
+
+            num1 = Math.floor(Math.random() * 10);
+            num2 = Math.floor(Math.random() * 10);
+            answer = num1 * num2;            // calculate product for later comparison to user's answer
+            
+            document.getElementById("question").innerHTML = `What is ${num1} times ${num2} ?`;
+        } 
+           
+            
+        // Function: evaluateAns() - gets user entered answer and compares to pre-calculated answer stored in global var.
+        // If correct, new HTML is added to the message displayed on page to ask user yes/no play again.
+        // If incorrect, message is display, prior answer cleared, and focus returns to answer box.   
+        // Initiated by:  user click on button   
+        function evaluateAns() { 
+            var userAns;                      // holds user entered answer, parsed to int
+            var resultString;                 // string to hold result
+            const radioButtonHTML = `<label><input type="radio" name="yesNoBtns" id="yes" value="yes"> Yes </label>
+                <label><input type="radio" name="yesNoBtns" id="no" value="no"> No </label>`;  // HTML to add to correct response msg
+
+            // get user response and convert to number
+            userAns = parseInt(document.forms["input_form"].elements["userInput"].value, 10);
+                              
+            if (userAns === answer) {
+                resultString = "That's right!  Play again? " + radioButtonHTML;
+                document.getElementById("message").innerHTML = resultString;     // Display result on the page (includes radio btns)
+                
+                // add listeners to new html (the radio buttons) just added to page
+                const yesRadio = document.getElementById("yes");                // Get references to the new radio buttons
+                const noRadio = document.getElementById("no");
+                yesRadio.addEventListener("change", handleRadioBtn);           // Add a change event listener to yes radio button
+                noRadio.addEventListener("change", handleRadioBtn);            // Add a change event listener to no radio button
+            }
+            else {
+                if (isNaN(userAns)) {
+                    resultString = "Please enter integers only.  Try again!";
+                }
+                else {
+                    resultString = `${userAns} is not right.  Try again!`;
+                }
+                document.getElementById("message").innerHTML = resultString;     // Display result on the page
+                clearAns();  
+            }
+        } 
+
+
+        // Function: clearAns().  Clears the prior answer entered into input box, and puts focus back on input box. 
+        function clearAns() {
+            const inputRef = document.getElementById("userInput");  // get ref to input box
+            inputRef.value = "";                                    // Clear the input box value
+            inputRef.focus();                                       // Put the focus back on the input field
+        } 
+
+
+        //Function: handleRadioBtn() - on a change event, checks if button is selected, and then calls appropriate function based on
+        // whether the value is yes or no.  Note: this function is modeled after code found online on how to handle radio buttons!
+        // Have not coded JS to process radio buttons before!
+        //Argument - the change event object
+        function handleRadioBtn(event) {
+            if (this.checked) {                                     // Check that button is selected
+                if (this.value === "yes") {                         // and if value of selected is Yes, call handleYes function
+                    handleYes();
+                } 
+                else if (this.value === "no") {                     // else if value of selected is No, call handleNo function 
+                    handleNo();
+                }
+            }
+        } 
+
+
+        // Function: handleYes() - clears prior answer and message area, and generates new question
+        function handleYes() {
+            clearAns();
+            document.getElementById("message").innerHTML = "";
+            initGame();
+        }
+
+        // Function: handleNo() - clears last question and answer, and displays goodby message.
+        function handleNo() {
+            document.getElementById("message").textContent = "Thanks for playing! See you next time.";     // Display message on page
+            document.getElementById("userInput").value = "";         //Clear answer box 
+            document.getElementById("question").textContent = "";    //Clear question
+        }
+
+    </script>
+</head>
+
+<body>
+	<header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #3 - Functions - Extra Credit </h2>
+	</header>
+
+	<main>
+        <h2>Welcome to the Multiplication Game!</h2>
+	    <p id="question"></p>        	
+		<form name="input_form">
+            <label><input type="number" name="userInput" id="userInput" min="0" autofocus required></label>
+            <label><input type="button" name="processBtn" id="processBtn" value="Check my answer"></label>
+        </form> 
+        <p id="message"></p>     
+        
+    		
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw3.html">Homework 3 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+	<footer>
+        This page belongs to Martha Skalak.<br>
+    </footer>
+
+    <script>
+        // Event Handler to call initGame function after page is loaded.
+        document.addEventListener("DOMContentLoaded", initGame);
+
+        // Event Handler for Check My Answer button.
+            // Notes to self:  need this at end of body, since need element to exist before getting ref to it.  
+            // not in a function, so this code will execute immediately upon parsing. 
+        const myBtn = document.getElementById("processBtn");   // Get reference to get reference to Check My Answer button in form.
+        myBtn.addEventListener('click', evaluateAns);          // assign ref to evaluateAns function to click event of button 
+    </script>
+</body>
+</html>
