@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming - Looping Statements - Fall 2025">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript - Looping - Display formatted square on webpage.</title>
+    <link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw4.css">
+    <script src="hw4extra.js" defer></script>
+</head>
+
+<body>
+	<header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #4 - Looping Statements - Extra Credit</h2>
+	</header>
+
+	<main>
+        <h2>Create a square outline made of asterisks, with side length equal to user entered integer.</h2>
+	            	
+		<form name="input_form">
+            <p>Enter side length for square.  Valid values are 2 to 10.</p>
+            <p><label>Side length<input type="number" name="int1" id="int1" required min="2" max="10" autofocus></label></p>
+            
+            <p><label><input type="reset" id="resetBtn" value="Clear form" onclick="clearDisplay()"></label>
+               <label><input type="button" id="buildBtn" value="Build square" onclick="processForm()"></label></p>
+        </form>
+    	
+        <pre id="displayArea" class="preformattedText"></pre>    <!-- square will be displayed here -->
+       
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw4.html">Homework 4 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+	<footer>
+        This page developed by Martha Skalak.<br>
+    </footer>
+
+</body>
+</html>

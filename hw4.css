@@ -1,0 +1,61 @@
+/* Styles for all HW4 pages - part 1, part 2, and Extra Credit page.
+
+/* styles for the elements */
+/* universal reset selector */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* styles for header */
+header h1 {
+    padding-top: .35em;
+    padding-left: .75em;}
+header h2 {
+    padding-left: .95em;}   
+
+/* styles for main */
+main h2 {
+	font-size: 115%;
+	padding: 2em 0 .25em 2em;}
+main p {
+    text-align: left;
+    padding: 1.2em .3em 0 2.3em; }
+#resultForLoop, #resultWhileLoop {
+    padding-left: 4em;} 
+       
+/* styles for table in Part2 */
+table {
+    margin-left: 4em;
+    margin-bottom: .7em;
+    border: 1px solid black;
+}
+thead {
+    background-color: rgb(248, 238, 92);
+}
+tbody tr:nth-child(odd) {
+    background-color: lightgray;
+}
+tbody tr:nth-child(even) {
+    background-color: white;
+}
+th, td {
+    padding: .2em .3em;
+}
+
+ /* used in Extra Credit  */
+ pre {
+  display: flex;
+  letter-spacing: 0.45em;    /* provides spacing equal to vertical space between lines */
+  white-space: pre;
+  font-family: monospace;
+  font-size: 16px;            
+  line-height: 16px; 
+  margin-left: 7em;
+  margin-top: 2em;
+}
+ 
+#int1 {
+    margin-left: .35em;
+    padding-left: .1em;
+}  

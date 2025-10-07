@@ -58,6 +58,20 @@ main p {
     padding: 4em .3em 0 0;
 }
 
+/* styles for navigation links at bottom of each page */
+#nav_menu ul {
+    list-style-type: none;
+    padding-top: 2em;
+    text-align: center;
+}
+#nav_menu ul li {
+    display: inline;
+    padding: 0 1.6em;
+}
+#nav_menu ul a {
+    font-weight: bold;
+}
+
 /* styles for footer  */
 footer {
 	background-color: #d5f1f8;
