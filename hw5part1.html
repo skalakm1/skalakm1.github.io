@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming Functions Assignment #5 - Fall 2025">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript/Ajax Programming - Arrays, Form Data Validation</title>
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw5.css">
+    <script src="hw5part1.js" defer></script>
+</head>
+
+<body>
+    <header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #5 - Part 1 - Validating form data, including radio buttons, checkboxes, and drop-down lists</h2>
+	</header>
+
+    <main>
+        <form id = "userform" name="userform">
+            <!--  input text box -->
+            <h3>Enter your full name</h3>
+            <label for="fullname">Full name: </label> 
+            <input type="text" name="fullname" id="fullname" autofocus>
+             
+            <!--  radio buttons -->
+            <h3>Select your age group </h3>  
+            <label for="agegrp1">20 and under: </label><input type="radio" name="age" id="agegrp1" value="agegrp1"><br>  
+            <label for="agegrp2">21 to 50: </label>    <input type="radio" name="age" id="agegrp2" value="agegrp2"><br>  
+            <label for="agegrp3">51 and over: </label> <input type="radio" name="age" id="agegrp3" value="agegrp3"><br>  
+
+            <!--  checkboxes -->
+            <h3>Select browsers used (select one or more)</h3> 
+            <label for="brw1">Firefox </label><input type="checkbox" name="brw" id="brw1" value="firefox"> 
+            <label for="brw2">Edge</label>    <input type="checkbox" name="brw" id="brw2" value="edge">   
+            <label for="brw3">Chrome</label>  <input type="checkbox" name="brw" id="brw3" value="chrome"> 
+            <label for="brw4">Safari</label>  <input type="checkbox" name="brw" id="brw4" value="safari"> 
+
+            <!--  select element -->
+            <h3>Choose your movie preference</h3>
+            <label for="movieList">Movie preference: </label>
+            <select name="movieList" id="movieList">
+                <option>Choose type:</option>
+                <option value="act">Action</option>
+                <option value="com">Comedy</option>
+                <option value="dra">Drama</option>
+                <option value="doc">Documentary</option>
+                <option value="sci">Science Fiction</option>
+            </select>
+        
+            <label><input type="button" id="submitBtn" value="Submit form" onClick="validatePage();"></label>
+            <label><input type="button" id="clearBtn" value="Clear all" onClick="clearAll();"></label>
+        
+        </form>
+        <div id="resultArea"></div>     <!-- area to display result messages -->
+        
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw5.html">Homework 5 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+    <footer>This page belongs to Martha Skalak.</footer>
+    
+</body>
+</html>

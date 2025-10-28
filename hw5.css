@@ -1,0 +1,40 @@
+/* Styles for all HW5 pages - part 1, part 2.
+/* styles for the elements */
+/* universal reset selector */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* styles for header */
+header h1 {
+    padding-top: .35em;
+    padding-left: .75em;}
+header h2 {
+    padding-left: .95em;}   
+
+/* styles for main */
+main h2 {
+	font-size: 115%;
+	padding: 2em 0 .25em 2em;}
+main h3 {
+    padding-top: 1.2em;
+    padding-bottom: 1em;
+}    
+
+main form, div {
+    text-align: left;
+    margin-left: 2em;
+    padding: 1.6em .2em 0 1em;
+}
+#brw1, #brw2, #brw3 {
+    margin-right: 1em;
+}
+
+#submitBtn {
+    margin-left: 5em;
+}
+#clearBtn {
+    margin-left: 2em;
+}
+
