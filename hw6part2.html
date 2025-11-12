@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming - Objects - Working with String and Window objects">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript Objects - String methods to search text, create new window object</title>
+    <link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw6.css">
+    <script src="hw6part2.js" defer></script>
+</head>
+
+<body>
+	<header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #6, Part 2 - Use String objects to search text, and create a new Window object to present message</h2>
+	</header>
+
+	<main>
+        <h2>
+	    This script determines the number of occurences of a single letter (case insensitive) in a text block.<br>
+        If the letter is found, the number of occurences is displayed on this page.<br>
+        If the letter is not found, a new window is created to display the result message.<br>
+        </h2>
+    
+		<form id= "input_form" name="input_form">
+            <div class="alignboxes">  
+            <label for="textblock">Enter the text to search:</label>
+            <!-- <input type="text" name="textblock" id="textblock" size = "500" maxlength = "500" autofocus required> -->
+            <textarea name="textblock" id="textblock" rows="6" cols="50" maxlength="300" placeholder="Enter your text here, up to 300 characters." autofocus required></textarea>
+            
+            <label for="ltr">Enter a single letter to find in text:</label>
+            <input type="text" name="ltr" id="ltr" size = "1" maxlength = "1" required>
+            </div>
+
+            <label><input type="button" id="submitBtn" value="Search"></label>
+            <label><input type="button" id="clearBtn"  value="Clear input"></label>
+            
+        </form>
+
+    	<div id="resultArea"></div>    <!--  area to display error messages and results -->	
+
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw6.html">Homework 6 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+	<footer>
+        This page belongs to Martha Skalak.<br>
+    </footer>
+    
+</body>
+</html>

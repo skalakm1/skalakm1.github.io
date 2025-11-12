@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming - Math Object">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript Math Object - using the static Math object</title>
+    <link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw6.css">
+    <script src="hw6part1.js" defer></script>
+</head>
+
+<body>
+	<header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #6, Part 1 - Using Math, Number and RegExp objects</h2>
+	</header>
+
+	<main>
+        <h2>
+	    This script uses Math methods to round floating-point numbers, and a RegExp to validate input.<br><br>
+        Enter a floating-point number to see:
+        </h2>
+        <ul>  
+            <li>your number rounded to nearest integer using Math.round</li>
+            <li>square root of your number, rounded to integer</li>   
+            <li>your number rounded to nearest tenths position</li>
+            <li>your number rounded to nearest hundreths position</li> 
+            <li>your number rounded to nearest thousandths position</li>
+        </ul>
+        
+		<form id= "input_form" name="input_form">
+              
+            <label for="usernum">Enter number with at least 4 decimal positions</label>
+            <input type="number" name="usernum" id="usernum" autofocus required>
+               
+            <label><input type="button" id="submitBtn1" value="Submit"></label>
+            <label><input type="button" id="clearBtn"  value="Clear input"></label>
+        </form>
+
+    	<div id="resultArea"></div>    <!--  area to display error messages and results -->	
+
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw6.html">Homework 6 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+	<footer>
+        This page belongs to Martha Skalak.<br>
+    </footer>
+    
+</body>
+</html>
