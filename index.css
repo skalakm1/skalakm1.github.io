@@ -53,10 +53,11 @@ nav li {
 nav a {
     font-weight: bold;
 }
-main p {
+/* main p {
     text-align: right;
     padding: 4em .3em 0 0;
 }
+*/
 
 /* styles for navigation links at bottom of each page */
 #nav_menu ul {

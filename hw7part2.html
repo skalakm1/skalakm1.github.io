@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JavaScript/Ajax Programming Functions Assignment #7 - Fall 2025">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript/Ajax Programming - Using cookies</title>
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="hw7.css">
+    <script src="hw7part2.js" defer></script>
+</head>
+
+<body>
+    <header>
+		<h1>CIS 114 - JavaScript/Ajax Programming </h1>
+        <h2>Homework #7 - Part 2 - Creating and using cookies</h2>
+	</header>
+
+    <main>
+        
+        <form id = "shortform" name="shortform">
+            <h3>Enter your name</h3>                        <!--  input text boxes -->
+            <label for="name">Name: </label> 
+            <input type="text" name="name" id="name" autofocus>
+
+            <h3>Enter your user name</h3>
+            <label for="username">User Name: </label> 
+            <input type="text" name="username" id="username">
+        </form>
+       
+        <label><input type="button" id="submitBtn" value="Submit form" onClick="processData();"></label>
+        <label><input type="button" id="clearBtn" value="Clear all" onClick="clearAll();"></label>
+
+        <div id="resultArea"></div>     <!-- area to display result messages -->
+            
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="hw7.html">Homework 7 Homepage</a></li>
+                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+            </ul>         
+        </nav>
+    </main>
+
+    <footer>This page belongs to Martha Skalak.</footer>
+    
+</body>
+</html>
