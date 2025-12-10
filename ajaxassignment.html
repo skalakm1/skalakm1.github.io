@@ -5,9 +5,8 @@
 	<meta name="description" content="JavaScript/Ajax Programming Functions Assignment #8 - Fall 2025">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>JavaScript/Ajax Programming - Using AJAX</title>
-
-
-  <style>
+    
+    <style>
     table,th,td {
       border : 1px solid black;
       border-collapse: collapse;
@@ -15,7 +14,22 @@
     th,td {
       padding: 5px;
     }
-  </style>
+    h2 {
+        padding-top: 4px;  
+    }
+    #nav_menu ul {
+        list-style-type: none;
+        padding-top: 2em;
+        text-align: center;
+    }
+    #nav_menu ul li {
+        display: inline;
+        padding: 0 1.6em;
+    }
+    #nav_menu ul a {
+        font-weight: bold;
+    }
+    </style>
 </head>
 
 <body>
@@ -49,10 +63,60 @@
     }
   </script>
 
+  <h2>Explanation of AJAX</h2>
+  <p>In the code provided, the AJAX request to get data from a named file on the server is initiated in the loadDoc function.  This AJAX request consists of 3 general steps:<br><br>   
+    Step 1.  A new instance of the built-in Javascript XMLHttpRequest object, named xhttp, is created.  
+    This object is a key part of the AJAX model,<br> because it lets Javascript programs send HTTP requests to a web server, 
+    and get data back, without requiring a full page reload.<br><br>  
+    Step 2. An anonymous function is assigned to the onload event handler of the xhttp object. 
+    This function is executed when the XMLHttpRequest object successfully gets a response from the server.  
+    It calls another function called myFunction, and passes “this” as an argument.   “this” is a reference to the xhttp object, 
+    so myFunction is getting a reference to the xhttp object, which gives it access to the data in the server’s response. <br><br> 
+    Step 3. The request is specified and sent to the server, using the open() and send() methods of the xhttp object. 
+    The open() method specifies a new request (or re-initializes an existing one).<br>
+    The first parameter of the open() call specifies the HTTP method to be used for the request; “GET” is used to retrieve data from the server.<br>
+    The second parameter is the file that the GET request is asking for, in this case “cd_catalog.xml”.<br>
+    This parameter can be a URL or file path, and if no specific path is provided, the file is assumed to be in the same directory as the HTML document making the request.<br>  
+    The third parameter is set to true for asynchronous requests (default value), false for synchronous requests. 
+    The provided code implicitly sets the request to be asynchronous (the default).<br><br>
+    The send() method sends the HTTP request to the server.  There is an optional parameter for a string to send to the server.  
+    For the GET request in this code, no data is sent so the optional paramter is not used.<br><br>
+    Using the data in the AJAX response:<br>
+    In myFunction(xml), the argument is the xhttp object passed from loadDoc.  The responseXML property of the object passed to the
+     function has the server’s response.  The data in the response is then accessed and displayed on the webpage using the innerHTML property.   
+  </p>
+
+  <h2>REST API</h2>
+  <article>
+    <h3>Imgflip API Evaluation</h3>
+    The <a href="https://imgflip.com/api">Imgflip API</a> allows developers to programmatically interact with the Imgflip website's features, primarily to generate and customize memes.
+    It provides endpoints for automating meme creation using existing templates or custom images.<br>
+    Imgflip is easy to use, with a minimal learning curve, as it follows REST guidelines and uses JSON for return data.  <br>
+    Simple and rapid meme creation is critical for long-term user retention, as the average lifespan of a meme is about 4 months!<br><br>  
+    Requests are sent via HTTP GET and POST methods.  Request parameters are standard HTTP form urlencoded parameters.  Return data follows JSON.<br>
+    The GET method is used only to retrieve templates, and does not require user authentication.  All other requests use POST, with user authentication.<br>  
+   
+    An Imgflip account, with username and password, is required for authentication. These credentials must be included in the body of POST requests for security.  API keys are not used.<br><br>  
+    There are 2 use levels.<br>  
+    Free Level.  The basic version is free.   It includes access to an array of the current most popular meme templates, and the ability to generate a meme by adding a caption to an Imgflip meme template.   The generated meme image is returned as a URL.
+    Requests to the free level do not have a hard limit, but may be throttled or blocked if abuse is detected.<br><br>  
+    Premium Level.  The premium version is $9.99/month plus a per-use cost of $0.005 to $0.02 for premium features, depending on the feature, after the limit of premium requests per month is exceeded.   
+    The API endpoints included in the Free Level are still free in the Premium Level.  The premium features include:
+    <ul>
+        <li>Customize memes by changing font, color, and position of text</li>
+        <li>Add captions to animated GIFs</li>
+	    <li>Generate meme text using AI models (like OpenAI's GPT) based on a topic or situation</li> 
+	    <li>Option to remove the Imgflip watermark</li>
+    </ul>
+    Images created using the API are publicly accessible through their URL but are not automatically posted publicly on the Imgflip website unless submitted by a user.<br>
+    The <a href="https://imgflip.com/terms">Terms of Use</a> for using the API detail restrictions on content, conduct, and age.   
+  </article>
+
   <nav id="nav_menu">
-            <ul>
-                <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
-            </ul>         
-        </nav>
+    <ul>
+        <li><a href="index.html">CIS 114 Assignments Homepage</a></li> 
+    </ul>         
+  </nav>
+    
 </body>
 </html>
