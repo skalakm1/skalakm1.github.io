@@ -1,0 +1,63 @@
+/* Styles for CIS 128 Course Homepage. */
+
+/* styles for the elements */
+/* universal reset selector */
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	background-color: rgb(227, 229, 230);
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    width: 100%;
+    margin: .15em auto;  /* margins around body */
+    background-color: #fcfbf4;
+}
+a:focus, a:hover {
+	font-style: italic;
+}
+
+
+/* styles for header */
+header {
+	padding: 1.5em 0 2.0em 0;
+	border-bottom: 3px solid #4b4a4e;
+    border-top: 3px solid #4b4a4e;
+	background-color: rgb(190, 227, 245);    
+}
+header h1 {
+    text-align: center;
+    padding-top: .35em;
+}
+
+
+/* styles for main */
+.grid-container {
+    display: grid;
+    grid-template-columns: auto 1fr;  /* Define two columns: first sized by content, second taking remaining space */
+    gap: 1rem;                        /* Add space between the columns */
+    padding: 1.25em 2em .5em 2em;
+}
+.text-container {
+    padding: 0 2em;
+}
+.bordered {
+  border: 4px solid #4b4a4e;     
+  border-radius: 10px; 
+}  
+h2 {
+    text-align: center;
+    padding-top: 1.25em;
+    padding-bottom: .75em;
+}
+ul {
+	padding: 0 0 .25em 2.25em;
+}
+li {
+	padding-bottom: .25em;
+    padding-left: .35em;
+}
+
