@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Show location page</title>
+  <meta name="description" content="Display user's location coordinates">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest Bootstrap compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container ms-0 ms-sm-1 ms-lg-2">     <!-- wrapper for entire body -->
+  <header>
+    <div class="d-flex align-items-center">
+      <img src="ABCToyslogo6.png" alt="ABC Toys company logo" class="img-fluid me-2" style="max-height: 169px; width: auto;">
+      <h1 class="mb-0">Making learning fun.</h1>
+    </div>
+  </header>
+
+  <nav class="navbar  navbar-expand-sm  bg-primary-subtle">
+  <div class="container-fluid">
+        
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="indexhw3.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="extra.html">Extra</a>
+        </li>
+      </ul>
+    </div> <!-- end collapsibleNavbar -->
+  </div>
+  </nav>
+
+  <p>Your location coordinates:</p>
+  <p id="result-area"></p>
+    
+  <script>
+    const x = document.getElementById("result-area");
+
+    if ("geolocation" in navigator) {                                /* if geolocation is available */
+      navigator.geolocation.getCurrentPosition(success, error);      /* get location */
+    } 
+    else {                                                           /* else geolocation IS NOT available */
+      x.innerText = "Geolocation is not supported by this browser."; /* put no geolocation message on page */
+    }
+
+    function success(position) {                                     /* if get location successfully */
+      x.innerHTML = "Latitude: " + position.coords.latitude +        /* put coordinates on page */
+      "<br>Longitude: " + position.coords.longitude;
+    }
+
+    function error() {                                               /* if error encountered in getting location */
+      x.innerText = "Sorry, no location data available.";            /* put no location available message on page */
+    }
+  </script>
+
+  <!-- Latest compiled JavaScript file for Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+  </script>
+</div>
+</body>
+
+</html>
