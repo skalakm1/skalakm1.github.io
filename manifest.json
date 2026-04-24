@@ -3,7 +3,7 @@
   "short_name": "PWA Example",
   "description": "An example PWA that can be installed on your device.",
   "start_url": "HW4index.html?launcher=true",
-  "id": "/HW4index.html?launcher=true",
+  "id": "HW4index.html?launcher=true",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#007bff",
