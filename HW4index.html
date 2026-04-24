@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Mobile Web App Development, College of San Mateo, Spring 2026">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Progressive Web Applications</title>
+	<link rel="stylesheet" href="HW4index.css">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+</head>
+
+<body>
+	<header>
+		<h1>Progressive Web Applications (PWA)</h1>
+	</header>
+
+	<main>
+       
+		<div class="text-container">
+            <p>Progressive Web Apps (PWAs) are websites built with modern web technologies that offer an app-like experience,
+                 including offline capabilities, fast performance, and push notifications. They are installed directly from the
+                 browser to the home screen, bypassing app stores.  A significant benefit of PWAs is that they work across multiple
+                 platforms using a single codebase.      
+            </p>
+            
+            <p>Progressive web apps must be served via HTTPS to ensure user privacy, security, and content authenticity.</p>
+        </div>
+
+        <div class="drop-down-container">    
+            <p>Change the background color!</p>
+        
+            <select id="backgrnd_choice">
+                <option value="" disabled selected>Select a background color</option>  
+                <option value = "lightblue.jpg">Light blue</option>
+                <option value = "lightgold.jpg">Light gold</option>
+            </select>
+        </div>    
+            
+        
+        
+	</main>
+    <script>
+        const choice = document.querySelector('#backgrnd_choice');
+        choice.addEventListener('change', (event) => {               // Add 'change' event listener to the select element
+            const selectedFile = event.target.value;
+            document.body.style.backgroundImage = `url('${selectedFile}')`;
+        });
+           
+    //function setBackgrnd() {
+    //    const choice = document.getElementById("backgrnd_choice").value;
+    //    document.body.style.backgroundImage = `url('${choice}')`;
+    //}
+    </script>
+</body>
+</html>
