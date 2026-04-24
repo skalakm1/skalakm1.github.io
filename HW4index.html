@@ -53,11 +53,18 @@
             const selectedFile = event.target.value;
             document.body.style.backgroundImage = `url('${selectedFile}')`;
         });
-           
-    //function setBackgrnd() {
-    //    const choice = document.getElementById("backgrnd_choice").value;
-    //    document.body.style.backgroundImage = `url('${choice}')`;
-    //}
+    </script>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('HW4sw.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
     </script>
 </body>
 </html>
