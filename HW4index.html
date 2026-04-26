@@ -29,8 +29,8 @@
             
             <p>
                 <h2>PWA Development Considerations</h2>
-                Progressive web apps must be served via HTTPS to ensure user privacy, security, and content authenticity. A 
-                significant benefit of PWAs for developers is that they work across multiple platforms using a single codebase.
+                A significant benefit of PWAs for developers is that they work across multiple platforms using a single codebase.
+                Progressive web apps must be served via HTTPS to ensure user privacy, security, and content authenticity. 
             </p>
         </div>
 
@@ -38,12 +38,19 @@
             <p>Change the background color!</p>
         
             <select id="backgrnd_choice">
-                <option value="" disabled selected>Select a background color</option>  
+                <option value = "" disabled selected>Select a background color</option>  
                 <option value = "lightblue.jpg">Light blue</option>
                 <option value = "lightgold.jpg">Light gold</option>
             </select>
         </div>    
-            
+        <div>
+            <h2>Local Storage demonstration</h2>
+            <form>
+                <label for="fname">Your first name:</label><br>
+                <input type="text" id="fname" name="fname"><br>
+            </form>
+            <p id="display_area"></p>
+        </div>    
         
         
 	</main>
@@ -66,5 +73,25 @@
                 });
         }
     </script>
+
+    <script>
+        window.onload = function() {
+            const storedName = localStorage.getItem("username");  // Get 'username' from local storage
+            if (storedName) {                                     // If a name has been stored (is not null) 
+                document.getElementById('display_area').innerText = `Hi, ${storedName}, glad to see you back!`;  // Display previously stored name on the page
+            };
+        }    
+    </script>
+
+    <script>
+        const nameInput = document.getElementById('fname');
+        
+        nameInput.addEventListener('blur', () => {     // Event occurs when user clicks outside the box (element loses focus)
+            var name = nameInput.value;
+            localStorage.setItem('userName', name);        // Save to local storage using key 'userName'
+            document.getElementById('display_area').innerText = `Hi, ${name}, glad to see you back!`;  // Display name back on the page
+        });
+    </script>
+    
 </body>
 </html>
