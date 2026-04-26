@@ -75,6 +75,14 @@
     </script>
 
     <script>
+        try {
+    localStorage.setItem('test', 'test');
+    localStorage.removeItem('test');
+    console.log('localStorage is enabled');
+} catch (e) {
+    console.log('localStorage is disabled');
+}
+
         window.onload = function() {
             const storedName = localStorage.getItem("username");  // Get 'username' from local storage
             if (storedName) {                                     // If a name has been stored (is not null) 
@@ -85,10 +93,9 @@
 
     <script>
         const nameInput = document.getElementById('fname');
-        
-        nameInput.addEventListener('blur', () => {     // Event occurs when user clicks outside the box (element loses focus)
+        nameInput.addEventListener('blur', () => {         // Event occurs when user clicks outside the box (element loses focus)
             var name = nameInput.value;
-            localStorage.setItem('userName', name);        // Save to local storage using key 'userName'
+            localStorage.setItem("userName", name);        // Save to local storage using key "userName"
             document.getElementById('display_area').innerText = `Hi, ${name}, glad to see you back!`;  // Display name back on the page
         });
     </script>
