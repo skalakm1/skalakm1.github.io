@@ -75,16 +75,9 @@
     </script>
 
     <script>
-        try {
-    localStorage.setItem('test', 'test');
-    localStorage.removeItem('test');
-    console.log('localStorage is enabled');
-} catch (e) {
-    console.log('localStorage is disabled');
-}
-
+        
         window.onload = function() {
-            const storedName = localStorage.getItem("username");  // Get 'username' from local storage
+            const storedName = localStorage.getItem("userName");  // Get 'username' from local storage
             if (storedName) {                                     // If a name has been stored (is not null) 
                 document.getElementById('display_area').innerText = `Hi, ${storedName}, glad to see you back!`;  // Display previously stored name on the page
             };
