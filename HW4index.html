@@ -110,11 +110,13 @@
             document.getElementById('display_area').innerText = `Hi, ${name}, glad to see you back!`;  // Display name back on page
         });
 
-        document.getElementById("fname").addEventListener("keydown", function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-        }
+        
+        document.querySelector('input').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+            }
         });
+
     </script>
     
 </body>
