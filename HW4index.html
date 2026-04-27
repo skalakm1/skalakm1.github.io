@@ -109,6 +109,12 @@
             localStorage.setItem("userName", name);        // Save to local storage using key "userName"
             document.getElementById('display_area').innerText = `Hi, ${name}, glad to see you back!`;  // Display name back on page
         });
+
+        document.getElementById("fname").addEventListener("keydown", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+        }
+        });
     </script>
     
 </body>
