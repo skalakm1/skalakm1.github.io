@@ -3,6 +3,8 @@ const urlsToCache = [
     '/',
     '/HW4index.html',
     '/HW4index.css',
+    '/lightblue.jpg',
+    '/lightgold.jpg',
     '/HW4sw.js'
 ];
 
