@@ -39,12 +39,17 @@ header h1 {
 
 /* styles for main */
 p {
-    padding-top: 1.5rem;
+    padding-top: 1rem;
 }
 .drop-down-container {
     padding-top: 3rem;
     text-align: center;
 }
+
+.bold-text {
+    font-weight: bold;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: auto 1fr;  /* Define two columns: first sized by content, second taking remaining space */
@@ -60,7 +65,6 @@ p {
 }  
 h2 {
     text-align: left;
-    padding-top: 1em;
     padding-bottom: .5em;
 }
 

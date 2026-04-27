@@ -22,12 +22,10 @@ self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
             .then(response => {
-                // Cache hit - return response
-                if (response) {
+                if (response) {                     // Cache hit - return response
                     return response;
                 }
-                // No cache hit - fetch from network
-                return fetch(event.request);
+                return fetch(event.request);        // No cache hit - fetch from network
             })
     );
 });

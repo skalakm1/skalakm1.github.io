@@ -21,16 +21,33 @@
        
 		<div class="text-container">
             <p>
-                <h2>PWA - User Experience</h2>
+                <h2>Definition</h2>
                 Progressive Web Apps (PWAs) are websites built with modern web technologies that offer an app-like experience,
                 including offline capabilities, fast performance, and push notifications. They are installed directly from the
                 browser to the home screen, bypassing app stores.  
             </p>
-            
             <p>
-                <h2>PWA Development Considerations</h2>
+                <h2>History</h2>
+                When Steve Jobs first floated the idea of a “web app” in 2007, he was ahead of the times.  The demand for native 
+                apps and a developer’s kit was too strong to ignore, and so native apps acquired from an App Store became the standard
+                for delivering applications to mobile devices.  
+                But less than a decade later, in 2015, Google coined the term “Progressive Web Apps”  to describe an updated version
+                of Jobs’ web app concept for reliable, fast applications that can run on varied devices, work offline, and are 
+                developed using a single codebase. The development of Service Workers and Web App Manifests around the same time 
+                made PWAs possible by providing offline functionality and installability.
+            </p>
+            <p>
+                <h2>Key Characteristics</h2>
+                <span class="bold-text">Reliable, Responsive, Flexible</span> - PWAs must always load, even when offline, to provide a consistent user experience.  They run on any browser, and varied devices (desktop, tablet, mobile).  This is accomplished using a JavaScript Service Worker running in the background, to store key resources and enable push notifications.  
+                Because they are web-based, PWAs are discoverable by search engines, and updates are pushed through the web server.   
+                <br><br>
+                <span class="bold-text">Engaging User Experience</span> - The web app manifest specifies to the browser how the app appears and is launched (home screen icons, theme colors, page to load when the app is launched, the screen orientation, etc.).   This allows the PWA to have a native app-like feel.
+                PWAs can be installed by users onto their home page, without going through an app store.   
+                <br><br>
+                <span class="bold-text">Development Considerations</span> - Progressive web apps must be served via HTTPS to ensure
+                user privacy, security, and content authenticity. 
                 A significant benefit of PWAs for developers is that they work across multiple platforms using a single codebase.
-                Progressive web apps must be served via HTTPS to ensure user privacy, security, and content authenticity. 
+                
             </p>
         </div>
 
@@ -42,7 +59,8 @@
                 <option value = "lightblue.jpg">Light blue</option>
                 <option value = "lightgold.jpg">Light gold</option>
             </select>
-        </div>    
+        </div>  
+
         <div>
             <h2>Local Storage demonstration</h2>
             <form>
@@ -52,17 +70,17 @@
             <p id="display_area"></p>
         </div>    
         
-        
-	</main>
-    <script>
+    </main>
+
+    <script>                                                         // Monitor for changes to backgrnd color choices
         const choice = document.querySelector('#backgrnd_choice');
         choice.addEventListener('change', (event) => {               // Add 'change' event listener to the select element
             const selectedFile = event.target.value;
-            document.body.style.backgroundImage = `url('${selectedFile}')`;
+            document.body.style.backgroundImage = `url('${selectedFile}')`;    // Put selected backgrnd option on page
         });
     </script>
     
-    <script>
+    <script>                                                        // Register Service Worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('HW4sw.js')
                 .then(registration => {
@@ -74,23 +92,22 @@
         }
     </script>
 
-    <script>
-        
+    <script>                                                      // When page loads, check for a localStorage name & display if exists
         window.onload = function() {
             const storedName = localStorage.getItem("userName");  // Get 'username' from local storage
             if (storedName) {                                     // If a name has been stored (is not null) 
-                console.log("stored name is present");
+                //console.log("stored name is present");
                 document.getElementById('display_area').innerText = `Hi, ${storedName}, glad to see you back!`;  // Display previously stored name on the page
             };
         }    
     </script>
 
-    <script>
+    <script>                                               // Monitor for name input box losing focus & then save input.  
         const nameInput = document.getElementById('fname');
         nameInput.addEventListener('blur', () => {         // Event occurs when user clicks outside the box (element loses focus)
             var name = nameInput.value;
             localStorage.setItem("userName", name);        // Save to local storage using key "userName"
-            document.getElementById('display_area').innerText = `Hi, ${name}, glad to see you back!`;  // Display name back on the page
+            document.getElementById('display_area').innerText = `Hi, ${name}, glad to see you back!`;  // Display name back on page
         });
     </script>
     
