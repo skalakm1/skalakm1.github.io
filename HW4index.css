@@ -8,18 +8,20 @@
 }
 html {
 	min-height: 100vh;
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
     width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
     
     /* margin: .15em auto;   margins around body */
-    
 }
+
 a:focus, a:hover {
 	font-style: italic;
 }
@@ -29,7 +31,6 @@ header {
 	padding: 1.5em 0 2.0em 0;
 	border-bottom: 3px solid #4b4a4e;
     border-top: 3px solid #4b4a4e;
-	   
 }
 header h1 {
     text-align: center;
