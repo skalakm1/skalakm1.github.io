@@ -1,4 +1,4 @@
-/* Styles for CIS 128 Course Homepage. */
+/* Styles for CIS 128 HW4 page */
 
 /* styles for the elements */
 /* universal reset selector */
@@ -39,7 +39,7 @@ header h1 {
 
 /* styles for main */
 p {
-    padding-top: .75rem;
+    padding-top: .5rem;
 }
 .drop-down-container {
     padding-top: 1rem;
@@ -59,7 +59,7 @@ p {
 }  
 h2 {
     text-align: left;
-    padding-bottom: .5em;
+    padding-top: .65em;
 }
 
 
