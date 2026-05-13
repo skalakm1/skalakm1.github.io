@@ -3,7 +3,8 @@ const urlsToCache = [
     '/',
     '/HW5.html',
     '/HW4.css',
-    '/HW5sw.js'
+    '/HW5sw.js',
+    'https://www.rapidnative.com/blogs/what-is-react-native'
 ];
 
 // Install event: Caches static assets
