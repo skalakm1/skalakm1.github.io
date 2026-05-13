@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Mobile Web App Development, College of San Mateo, Spring 2026">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>Hybid Frameworks - Comparison</title>
+	<link rel="stylesheet" href="HW5.css">
+    <!-- <link rel="manifest" href="manifest.json" crossorigin="use-credentials"> -->
+</head>
+
+<body>
+	<header>
+		<h1>Comparison of Hybrid Application Development Frameworks</h1>
+	</header>
+
+	<main>
+       	<div class="grid-container">
+
+        <div class="column">     <!-- Column 1 -->
+            <h2 class = "card reactnative">React native</h2>
+            <ul>
+                <li>Developed by Meta (Facebook), 1st release 2015</li>
+                <li>Language: JavaScript, using React Library.</li>
+                <li><a href= "https://www.rapidnative.com/blogs/what-is-react-native">Mature, stable, open-source framework, with new JSI (JS interface)</a>, 
+                    suitable for enterprise level apps. (1)
+                </li>
+                
+                <li class ="extra-space">Single codebase, written in JS for iOS and Android platforms, with option to also use
+                     platform-specific JS.  React Native for Web allows use of same code for website.   </li>
+                <li>Large talent pool - JS community </li>
+                <li><a href="https://reactnative.dev/docs/testing-overview">Testing:</a> Uses JS-based Jest for unit testing,
+                     and relies on 3rd party tools for integration tesing. (2)</li>
+                
+                <li class ="extra-space"><span class="bold-text">Performance</span> is considered Very Good - JS runs on virtual machine</li>
+                <li>Native looking UI: leverages native OS components</li>
+                <li><a href= "https://www.techaheadcorp.com/blog/progressive-web-apps-with-react-native/">PWA support:</a> yes, but not built-in. 
+                    Requires manual set-up. (3)</li> 
+                <li>Hot Reload supported</li>
+                <li>Enterprise-level support: No vendor-backed SLA, relies on community or third-party ecosystems.</li>
+                <li>Relies on community plugins for most security layers.</li>
+                
+                <li class ="extra-space"><span class="bold-text"><a href="https://reactnative.dev/docs/getting-started">Documentation:</a></span> lean, 
+                    relies on familiarity with JS/React ecosystem, updates can be slow (4)</li>       
+
+                <li class ="extra-space"><span class="bold-text">Best for:</span>
+                    <ul>
+                        <li>Mobile-first apps.  React Native Web used for website. </li>
+                        <li><a href="https://softices.com/blogs/react-native-for-both-ios-and-android">Business, ecommerce, content apps</a> (5)</li>
+                    </ul>
+                </li>
+            </ul>
+                <p class = "extra-space"><span class="bold-text">REFERENCES:</span><br>
+                    (1) https://www.rapidnative.com/blogs/what-is-react-native<br>
+                    (2) https://reactnative.dev/docs/testing-overview <br>
+                    (3) https://www.techaheadcorp.com/blog/progressive-web-apps-with-react-native/ <br>
+                    (4) https://reactnative.dev/docs/getting-started <br>
+                    (5) https://softices.com/blogs/react-native-for-both-ios-and-android
+                </p>
+        </div>  <!-- end Column 1 -->
+
+        <div class="column">     <!-- Column 2 -->
+            <h2 class = "card ionic">Ionic</h2>
+            <ul>
+                <li>Developed by Drifty Co., 1st release 2013, acquired by OutSystems 2022.</li>
+                <li>Language: HTML, CSS, JavaScript/TypeScript.  </li>
+                <li><a href= "https://ionic.io/"> Open-source framework.</a> (1)  <a href= "https://ionic.io/blog/important-announcement-the-future-of-ionics-commercial-products"> Enterprise level products supported only until Dec 2027</a> (2), 
+                    but free core products sufficient for current needs (possible issue in future, depending on growth).  
+                </li>
+                
+                <li class ="extra-space">Single codebase, apps run across all platforms iOS, Android, and the Web.</li>
+                <li>Large talent pool since uses standard web tech, and we can use existing dev team.</li>
+                <li>Testing: Relies on standard web-based tools for unit and integation testing. Can build and preview directly in Web browser.</li>
+                
+                <li class ="extra-space"><span class="bold-text">Performance</span> is considered Good - uses WebViews (browser-based)</li>
+                <li>UI: uses web tech (HTML/CSS) to give browser-like view</li>
+                <li><a href= "https://ionicframework.com/docs/core-concepts/what-are-progressive-web-apps">PWA support:</a> Excellent and seamless. (3)  </li>
+                <li><a href= "https://ionicframework.com/docs/cli/livereload"> Live Reload</a> supported (refreshes app or web view when 
+                    code changes are detected) (4)</li>
+                <li>Enterprise-level support: Offers guaranteed response SLAs for troubleshooting. </li>
+                <li>Offers a suite of official enterprise security products (support through Dec 2027).</li>
+                
+                <li class ="extra-space"><span class="bold-text"><a href="https://ionicframework.com/docs">Documentation:</a></span>
+                 extensive guides, clear examples, well maintained (5)</li>
+
+                <li class ="extra-space"><span class="bold-text">Best for:</span>
+                    <ul>
+                        <li>Web-first projects</li>
+                        <li>Rapid, easy PWA deployment</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class = "extra-space"><span class="bold-text">REFERENCES:</span><br>
+                (1) https://ionic.io/  <br>
+                (2) https://ionic.io/blog/important-announcement-the-future-of-ionics-commercial-products <br>
+                (3) https://ionicframework.com/docs/core-concepts/what-are-progressive-web-apps <br>
+                (4) https://ionicframework.com/docs/cli/livereload <br>
+                (5) https://ionicframework.com/docs
+            </p>
+        </div>   <!-- end Column 2 -->
+
+        <div class="column">     <!-- Column 3 -->
+            <h2 class = "card flutter">Flutter</h2>
+            <ul>
+                <li>Developed by Google, 1st release 2015</li>
+                <li>Language: Dart</li>
+                <li><a href= "https://flutter.dev/">Open-source, cohesive framework for multi-platform</a> (mobile, web, desktop), designed for this from the start. (1)</li>
+                
+                <li class ="extra-space">Single codebase, apps run across iOS, Android, and the Web.
+                <li>Requires Dart coders & new UI paradigm, so upfront personnel/training costs.</li> 
+                <li>Testing: Unit testing - Native Dart tools & specialized Widget Testing for UI components
+                     (everything in Flutter is a widget).  
+                    Built-in integration test package.</li>     
+                
+
+                <li class ="extra-space"><span class="bold-text">Performance</span> is considered Excellent - compiles to native machine code</li>
+                <li>UI: draws everything from scratch with own rendering engine (does not use native OS or browser defaults)</li>
+                <li><a href="https://www.fullstack.com/labs/resources/blog/progressive-web-applications-pwa-with-flutter">PWA support:</a> yes, but can be slow in rendering (2)</li> 
+                <li>Hot Reload supported</li>
+                
+                <li>Enterprise-level support: No vendor-backed SLA, relies on community or third-party ecosystems. </li>
+                <li>Provides compiled code security (obfuscation).</li>
+
+                <li class ="extra-space"><span class="bold-text"><a href="https://docs.flutter.dev/">Documentation:</a></span> excellent, detailed, including visual examples for widgets,
+                    well maintained (3)</li>
+                
+                <li class ="extra-space"><span class="bold-text">Best for:</span>
+                    <ul>
+                        <li>Complex animations, real-time data visualization (think gaming, beyond our company's current needs)</li>
+                        <li><a href="https://flutternest.com/blog/flutter-for-custom-app-development">Custom UI,</a> and absolute consistency 
+                            in UI across different device OS versions (4)</li>
+                    </ul>
+                </li>  
+            </ul>
+            
+            <p class = "extra-space"><span class="bold-text">REFERENCES:</span><br>
+            (1) https://flutter.dev/ <br>
+            (2) https://www.fullstack.com/labs/resources/blog/progressive-web-applications-pwa-with-flutter <br>
+            (3) https://docs.flutter.dev/ <br>
+            (4) https://flutternest.com/blog/flutter-for-custom-app-development
+        </p>
+        </div>   <!-- end Column 3 -->
+        </div>   <!-- end grid-container -->
+    </main>
+    
+    
+    <script>                                                        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('HW4sw.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+
+</body>
+</html>
